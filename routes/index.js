@@ -10,9 +10,18 @@ router.get('/', function(req, res, next) {
     next()
 });
 
-// GET /units  = todas las unidades
+// GET
 router.get('/units' , controllerUnits.showAll);
+// GET
+router.get('/units/:faction', controllerUnits.byFaction);
 
-router.get('/units/:name', controllerUnits.byName);
+// POST
+router.post('/units/add', controllerUnits.addUnit);
+
+//PUT
+router.put('/units/:id', controllerUnits.updateUnit);
+
+//DELETE
+router.delete('/units/:id',  controllerUnits.deleteUnit);
 
 module.exports = router;
